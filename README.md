@@ -9,7 +9,7 @@
 
 - [Backend Part I - Sistema de Busca, Processamento e Anonimização de Tickets GLPI](#backend-part-i---sistema-de-busca-processamento-e-anonimização-de-tickets-glpi-)
   - [Características](#-características)
-  - [Configuração Inicial](#-configuração-inicial)
+  - [Configuração Inicial](#configuracao-inicial)
   - [Como Usar](#-como-usar)
   - [Requisitos](#-requisitos)
   - [Estrutura de Diretórios](#-estrutura-de-diretórios)
