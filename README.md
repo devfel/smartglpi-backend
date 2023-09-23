@@ -4,7 +4,7 @@
 </p>
 
 <p align="center">
-  # 🎫 SmartGLPI 🛠️
+  <h1> # 🎫 SmartGLPI 🛠️ </h1>
 </p>
 
 ## Table of Contents
@@ -22,7 +22,7 @@
   - [Vetorizar Perguntas dos Tickets, Compara-las com o Ticket buscado](#vetorizar-perguntas-dos-tickets-compara-las-com-o-ticket-buscado)
   - [Em Construção](#em-construção)
 
-# Backend Part I - Sistema de Busca, Processamento e Anonimização de Tickets GLPI 🛠️
+# Backend Part I - Sistema de Busca, Processamento e Anonimização de Tickets GLPI
 
 Converta e processe tickets do GLPI, anonimizando informações sensíveis e armazenando os dados em um formato JSON.
 
@@ -96,7 +96,7 @@ Este projeto está licenciado sob a Licença MIT.
 - Salvando em JSON:
   Após processar todos os tickets e passar os filtros e tratamentos necessários, o sistema salva os detalhes em um arquivo JSON.
 
-# Backend Part II - Comparar Ticket Buscado com os Demais, Recomendando OS Similares e Resposta 🛠️
+# Backend Part II - Comparar Ticket Buscado com os Demais, Recomendando OS Similares e Resposta
 
 ## Vetorizar Perguntas dos Tickets, Compara-las com o Ticket buscado
 
