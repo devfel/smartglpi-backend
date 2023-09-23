@@ -3,7 +3,9 @@
  <img src="https://devfel.com/imgs/devfel-logo-01.JPG" alt="DevFel"></a>
 </p>
 
-# 🎫 SmartGLPI 🛠️
+<p align="center">
+  # 🎫 SmartGLPI 🛠️
+</p>
 
 ## Table of Contents
 
