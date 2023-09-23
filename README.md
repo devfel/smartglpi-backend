@@ -32,6 +32,8 @@ Converta e processe tickets do GLPI, anonimizando informações sensíveis e arm
 - Processe o conteúdo do ticket, removendo tags HTML e imagens.
 - Salve os detalhes processados em um arquivo JSON.
 
+<a name="configuracao-inicial"></a>
+
 ## ⚙️ Configuração Inicial
 
 As informações de configuração da API GLPI são carregadas a partir de um arquivo `.env`. Você precisa configurar as seguintes variáveis:
