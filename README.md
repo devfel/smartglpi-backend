@@ -5,7 +5,22 @@
 
 # 🎫 SmartGLPI 🛠️
 
-# 🎫 Backend Part I - Sistema de Busca, Processamento e Anonimização de Tickets GLPI 🛠️
+## Table of Contents
+
+- [Backend Part I - Sistema de Busca, Processamento e Anonimização de Tickets GLPI](#backend-part-i---sistema-de-busca-processamento-e-anonimização-de-tickets-glpi-)
+  - [Características](#-características)
+  - [Configuração Inicial](#-configuração-inicial)
+  - [Como Usar](#-como-usar)
+  - [Requisitos](#-requisitos)
+  - [Estrutura de Diretórios](#-estrutura-de-diretórios)
+  - [Contribuição](#-contribuição)
+  - [Licença](#-licença)
+  - [Mais Informações Detalhadas do Sistema](#-mais-informações-detalhadas-do-sistema)
+- [Backend Part II - Comparar Ticket Buscado com os Demais, Recomendando OS Similares e Resposta](#backend-part-ii---comparar-ticket-buscado-com-os-demais-recomendando-os-similares-e-resposta-)
+  - [Vetorizar Perguntas dos Tickets, Compara-las com o Ticket buscado](#vetorizar-perguntas-dos-tickets-compara-las-com-o-ticket-buscado)
+  - [Em Construção](#em-construção)
+
+# Backend Part I - Sistema de Busca, Processamento e Anonimização de Tickets GLPI 🛠️
 
 Converta e processe tickets do GLPI, anonimizando informações sensíveis e armazenando os dados em um formato JSON.
 
@@ -79,7 +94,7 @@ Este projeto está licenciado sob a Licença MIT.
 - Salvando em JSON:
   Após processar todos os tickets e passar os filtros e tratamentos necessários, o sistema salva os detalhes em um arquivo JSON.
 
-# 🎫 Backend Part II - Comparar Ticket Buscado com os Demais, Recomendando OS Similares e Resposta 🛠️
+# Backend Part II - Comparar Ticket Buscado com os Demais, Recomendando OS Similares e Resposta 🛠️
 
 ## Vetorizar Perguntas dos Tickets, Compara-las com o Ticket buscado
 
