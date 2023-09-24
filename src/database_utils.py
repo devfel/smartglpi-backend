@@ -9,9 +9,13 @@ def load_data(filename=None):
             os.path.dirname(__file__), "..", "tmp", "ticket_details.json"
         )
 
-    with open(filename, "r", encoding="utf-8") as file:
-        print(f"Opening File: {filename}")
-        return json.load(file)
+    try:
+        with open(filename, "r", encoding="utf-8") as file:
+            print(f"Opening File: {filename}")
+            return json.load(file)
+    except FileNotFoundError:
+        print(f"File {filename} not found. Using an empty dataset.")
+        return []
 
 
 # Save Dataset

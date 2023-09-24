@@ -1,5 +1,5 @@
 from src.glpi_utils import generate_ticket_ids, mask_cpf, clean_html_content
-from src.database_utils import save_to_json
+from src.database_utils import save_to_json, load_data
 from src.glpi_api_routes import (
     init_session,
     get_ticket_details,
@@ -8,7 +8,7 @@ from src.glpi_api_routes import (
 )
 
 
-def search_tickets(
+def get_glpi_tickets(
     individual_ticket_ids=None,
     use_interval=False,
     start_id=None,
@@ -33,16 +33,16 @@ def search_tickets(
 
     Example:
     # Example call with single individual tickets.
-    search_tickets(individual_ticket_ids=[12084])
+    get_glpi_tickets(individual_ticket_ids=[12084])
 
     # Example call with multiple individual tickets.
-    search_tickets(individual_ticket_ids=[12492, 12084])
+    get_glpi_tickets(individual_ticket_ids=[12492, 12084])
 
     # Example call with interval tickets.
-    search_tickets(use_interval=True, start_id=12000, end_id=12010)
+    get_glpi_tickets(use_interval=True, start_id=12000, end_id=12010)
 
     # Example call with multiple individual tickets and interval tickets.
-    search_tickets(individual_ticket_ids=[12492, 12084], use_interval=True, start_id=12000, end_id=12010)
+    get_glpi_tickets(individual_ticket_ids=[12492, 12084], use_interval=True, start_id=12000, end_id=12010)
     """
 
     session_token = init_session()
@@ -69,11 +69,20 @@ def search_tickets(
             print("No ticket IDs provided. Exiting.")
             return
 
+        # Load existing data
+        existing_tickets = load_data()
+        existing_tickets_dict = {ticket["id"]: ticket for ticket in existing_tickets}
+
         # Process the tickets and get the list of ticket objects
         ticket_objects_list = process_tickets(session_token, ticket_ids)
 
-        # Save the list of ticket objects to the specified JSON file
-        save_to_json(ticket_objects_list)
+        # Update the dictionary with the new/updated tickets
+        for ticket in ticket_objects_list:
+            existing_tickets_dict[ticket["id"]] = ticket
+
+        # Convert back to list and save to JSON
+        updated_tickets_list = list(existing_tickets_dict.values())
+        save_to_json(updated_tickets_list)
     else:
         print("Failed to initialize session.")
 
