@@ -1,5 +1,5 @@
 import requests
-from src.api_config import *
+from src.apis_config import *
 
 
 def init_session():

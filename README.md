@@ -98,6 +98,32 @@ Este projeto está licenciado sob a Licença MIT.
 
 # Backend Part II - Comparar Ticket Buscado com os Demais, Recomendando OS Similares e Resposta
 
-## Vetorizar Perguntas dos Tickets, Compara-las com o Ticket buscado
+## Vetorizar Perguntas dos Tickets, Compara-las com o Ticket buscado (EM CONSTRUÇÃO)
 
-## Em Construção
+## TODO List PART I:
+
+### Buscar uma OS do Sistema e Atualizar Banco
+
+- [ ] Se ID da os no SmartGLPI DB:
+  - [ ] Faz toda a questão das comparações de vetores embed com outras OSs já cadastradas.
+- [ ] Se NÃO no banco no SmartGLPI DB:
+  - [ ] Busca no banco do GLPI. Se no banco do GLPI:
+    - [ ] Roda o cadastro de novas OSs passando o ID.
+    - [ ] Faz toda a questão das comparações de vetores embed com outras OSs já cadastradas.
+  - [ ] Se Não (OS inexistente no GLPI ou erro na conexão).
+
+### Atualizações em OSs já Cadastradas
+
+- [ ] 1 vez por dia, For em Todas as OS:
+  - [ ] Verifica se a última atualização no GLPI daquela OS é igual à que está no banco SmartGLPI:
+    - [ ] Se não for igual:
+      - [ ] Então atualiza o registro (Question and Answers).
+      - [ ] Se a atualização de registro for um acompanhamento feito pelo usuário que cadastrou a OS:
+        - [ ] Atualiza Vector Embed.
+        - [ ] Aguarda 22 segundos (Free Plan).
+
+### Novas OSs, Sem Regenerar Tudo de Novo
+
+- [ ] 1 vez por dia:
+  - [ ] Pega o último ID do banco do GLPI.
+  - [ ] Roda o cadastro de novas OSs passando uma (Lista de todos os ids que estão no GLPI DB e que não estão no SmartGLPI DB).
