@@ -1,5 +1,5 @@
 import requests
-from src.apis_config import *
+from src.apis_config import GLPI_API_URL, GLPI_API_USER_TOKEN, GLPI_API_APP_TOKEN
 
 
 def init_session():

@@ -1,5 +1,11 @@
-from src.utils import *
-from src.glpi_api_routes import *
+from src.glpi_utils import generate_ticket_ids, mask_cpf, clean_html_content
+from src.database_utils import save_to_json
+from src.glpi_api_routes import (
+    init_session,
+    get_ticket_details,
+    get_followup_details,
+    get_itil_solution_details,
+)
 
 
 def search_tickets(
