@@ -5,6 +5,9 @@ from src.apis_config import (
     OPENAI_API_KEY,
     SIMILARITY_THRESHOLD_FOR_RESPONSE,
     MAX_SIMILAR_TICKETS_FOR_ANSWER,
+    CHAT_RESPONSE_TEMPERATURE,
+    CHAT_RESPONSE_MAX_TOKENS,
+    CHAT_RESPONSE_MODEL,
 )
 
 openai.api_key = OPENAI_API_KEY
@@ -37,6 +40,12 @@ def suggest_answer(searched_ticket_id):
     similar_tickets = find_most_similar_by_ticket_id(searched_ticket_id)
     for ticket, similarity in similar_tickets:
         if similarity >= SIMILARITY_THRESHOLD_FOR_RESPONSE:
+            # Check if the answer exists and isn't empty
+            answer_content = ticket.get("answer", "").strip()
+            if not answer_content:
+                print(f"Skipping Ticket: {ticket['id']} because it has no answer")
+                continue
+
             print(f"Adding Answer Of Ticket: {ticket['id']}")
             message_content = f"Informação: '''{ticket['answer']}'''"
             messages.append({"role": "user", "content": message_content})
@@ -48,10 +57,10 @@ def suggest_answer(searched_ticket_id):
     if ticket_count >= 1:
         # Request completion from OpenAI
         response = openai.ChatCompletion.create(
-            model="gpt-3.5-turbo-16k",
+            model=CHAT_RESPONSE_MODEL,
             messages=messages,
-            temperature=0.2,  # You can adjust the temperature as needed
-            max_tokens=450,  # You can adjust max tokens as needed
+            temperature=CHAT_RESPONSE_TEMPERATURE,
+            max_tokens=CHAT_RESPONSE_MAX_TOKENS,
         )
 
         # The answer will be the content of the latest message from the "assistant" role
