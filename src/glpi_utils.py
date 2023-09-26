@@ -10,6 +10,9 @@ def mask_cpf(content):
     # Masking pattern for CPF in the format #############
     content = re.sub(r"\b\d{11}\b", "[#]", content)
 
+    # Masking pattern for CPF in the format ###########-##
+    content = re.sub(r"\d{9}-\d{2}", "[#]", content)
+
     return content
 
 
