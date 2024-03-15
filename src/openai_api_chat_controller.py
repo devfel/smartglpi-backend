@@ -56,7 +56,7 @@ def suggest_answer(searched_ticket_id):
 
     if ticket_count >= 1:
         # Request completion from OpenAI
-        response = openai.ChatCompletion.create(
+        response = openai.chat.completions.create(
             model=CHAT_RESPONSE_MODEL,
             messages=messages,
             temperature=CHAT_RESPONSE_TEMPERATURE,
@@ -64,6 +64,6 @@ def suggest_answer(searched_ticket_id):
         )
 
         # The answer will be the content of the latest message from the "assistant" role
-        return response.choices[0].message["content"].strip()
+        return response.choices[0].message.content
     else:
         return "Não foi possível encontrar respostas com similaridade relevante o suficiente na base de dados para gerarmos uma resposta."

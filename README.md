@@ -44,6 +44,17 @@ As informações de configuração da API GLPI são carregadas a partir de um ar
 
 🚨 **Atenção**: Certifique-se de configurar os privilégios do usuário da API para carregar os tickets. Pode ser necessário associar o usuário aos grupos ou o sistema pode receber acesso negado a certos tickets.
 
+- Configure API URL (Caminho: GLIP - Configurar - Geral - API, exemplo: http://192.168.0.155/apirest.php/)
+- Configure API APP TOKEN (Caminho: GLIP - Configurar - Geral - API - Criar/Configurar Cliente de API - Token da aplicação [app_token])
+- Configure IPv4 Address (Caminho: GLIP - Configurar - Geral - API - Criar/Configurar Cliente de API - configure o intervalo de endereço IPv4)
+
+- Configure API USER TOKEN (Caminho: GLIP - Administração - Usuários - Busque/Crie o usuário - API token)
+
+OPENAI API - As informações de configuração da API da OpenAI também são carregadas a partir do arquivo `.env`. Você precisa configurar a seguinte variável:
+
+- `OPENAI_API_KEY`
+- Acesse o site da API da OpenAI, faça o login e certifique-se de ter um plano ativo para as capacidades de embeddings e geração de texto. Existe um plano gratuito que pode atender a demanda de alguns, mas recomenda-se o plano anual de $5 dólares, que deve ser suficiente para uma grande quantidade de embeddings de tickets.
+
 ## 🚀 Como Usar
 
 1. Coloque os IDs dos tickets que você deseja processar no script.
@@ -96,10 +107,6 @@ Este projeto está licenciado sob a Licença MIT.
 - Salvando em JSON:
   Após processar todos os tickets e passar os filtros e tratamentos necessários, o sistema salva os detalhes em um arquivo JSON.
 
-# Backend Part II - Comparar Ticket Buscado com os Demais, Recomendando OS Similares e Resposta
-
-## Vetorizar Perguntas dos Tickets, Compara-las com o Ticket buscado (EM CONSTRUÇÃO)
-
 ## TODO List PART I:
 
 ### Buscar uma OS do Sistema e Atualizar Banco
@@ -127,3 +134,5 @@ Este projeto está licenciado sob a Licença MIT.
 - [ ] 1 vez por dia:
   - [ ] Pega o último ID do banco do GLPI.
   - [ ] Roda o cadastro de novas OSs passando uma (Lista de todos os ids que estão no GLPI DB e que não estão no SmartGLPI DB).
+
+# Backend Part II - Comparar Ticket Buscado por um texto inserido pelo usuário.
